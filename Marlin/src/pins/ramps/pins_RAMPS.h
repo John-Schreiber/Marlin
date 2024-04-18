@@ -78,7 +78,8 @@
 #ifndef SERVO3_PIN
   #define SERVO3_PIN                           4
 #endif
-
+#define COOLANT_FLOOD_PIN                      5
+#define COOLANT_MIST_PIN                       11
 //
 // Foam Cutter requirements
 //
@@ -306,10 +307,10 @@
 #if HAS_CUTTER && !defined(SPINDLE_LASER_ENA_PIN)
   #if NUM_SERVOS < 2                              // Use servo connector if possible
     #ifndef SPINDLE_LASER_PWM_PIN
-      #define SPINDLE_LASER_PWM_PIN            6  // Hardware PWM
+      #define SPINDLE_LASER_PWM_PIN            HEATER_0_PIN // Hardware PWM
     #endif
     #define SPINDLE_LASER_ENA_PIN              4  // Pullup or pulldown!
-    #define SPINDLE_DIR_PIN                    5
+    //#define SPINDLE_DIR_PIN                    5
   #elif HAS_FREE_AUX2_PINS
     #define SPINDLE_LASER_PWM_PIN        AUX2_07  // Hardware PWM
     #define SPINDLE_LASER_ENA_PIN        AUX2_06  // Pullup or pulldown!
